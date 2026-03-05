@@ -75,52 +75,45 @@
   }
 
   .dark {
-    --background: 210 40% 10%;
-    --foreground: 40 33% 95%;
+    /* Futurisic Tech Palette */
+    --background: 0 0% 4%; /* Near black */
+    --foreground: 0 0% 98%;
 
-    --card: 210 35% 14%;
-    --card-foreground: 40 33% 95%;
+    --card: 0 0% 7%; /* Slightly lighter than bg */
+    --card-foreground: 0 0% 98%;
 
-    --popover: 210 35% 14%;
-    --popover-foreground: 40 33% 95%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 38 70% 55%;
-    --primary-foreground: 210 40% 10%;
+    --primary: 152 100% 50%; /* Neon Green */
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 210 30% 18%;
-    --secondary-foreground: 40 33% 95%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 210 25% 20%;
-    --muted-foreground: 40 20% 65%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 38 70% 55%;
-    --accent-foreground: 210 40% 10%;
+    --accent: 152 100% 50%;
+    --accent-foreground: 0 0% 0%;
 
-    --coral: 15 75% 55%;
-    --coral-foreground: 0 0% 100%;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 152 100% 50%;
 
-    --teal: 180 45% 45%;
-    --teal-foreground: 0 0% 100%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 210 25% 22%;
-    --input: 210 25% 22%;
-    --ring: 38 70% 55%;
-
-    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.3);
-    --shadow-medium: 0 8px 30px -8px hsl(0 0% 0% / 0.4);
-    --shadow-large: 0 20px 50px -15px hsl(0 0% 0% / 0.5);
+    --shadow-soft: 0 4px 20px -4px hsl(152 100% 50% / 0.1);
+    --shadow-medium: 0 8px 30px -8px hsl(152 100% 50% / 0.15);
+    --shadow-large: 0 20px 50px -15px hsl(152 100% 50% / 0.25);
+    --shadow-glow: 0 0 40px -10px hsl(152 100% 50% / 0.4);
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-primary: 152 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 152 100% 50%;
   }
 }
 
@@ -134,28 +127,22 @@
   }
 
   h1, h2, h3, h4 {
-    @apply font-serif;
+    /* Changing heading font to sans for tech look */
+    @apply font-sans font-medium tracking-tight;
   }
 }
 
 @layer utilities {
-  .text-gradient-sunset {
-    background: var(--gradient-sunset);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .text-glow {
+    text-shadow: 0 0 10px hsl(152 100% 50% / 0.5), 0 0 20px hsl(152 100% 50% / 0.3);
   }
 
-  .bg-gradient-ocean {
-    background: var(--gradient-ocean);
+  .bg-glow-green {
+    background: radial-gradient(circle at center, hsl(152 100% 50% / 0.15) 0%, transparent 70%);
   }
 
-  .bg-gradient-sand {
-    background: var(--gradient-sand);
-  }
-
-  .bg-gradient-sunset {
-    background: var(--gradient-sunset);
+  .glass-panel {
+    @apply bg-card/40 backdrop-blur-xl border border-white/10 rounded-2xl;
   }
 
   .shadow-soft {

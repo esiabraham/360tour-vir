@@ -1,76 +1,49 @@
 import { Link } from "react-router-dom";
-import { Play, ArrowRight } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroResort from "@/assets/hero-resort.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroResort})` }}
-      />
-      
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-foreground/50 via-foreground/40 to-foreground/70" />
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-background">
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 rounded-full blur-[120px] pointer-events-none" />
+
+      {/* Stars/Dust (optional simple background texture) */}
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light pointer-events-none"></div>
 
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 pt-20">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            Trusted by leading resorts in Ghana
-          </div>
+        <div className="max-w-4xl mx-auto text-center space-y-10">
 
           {/* Headline */}
-          <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight">
-            Immersive Virtual Experiences That{" "}
-            <span className="text-gradient-sunset">Increase Resort Bookings</span>
+          <h1 className="font-sans text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight">
+            Driving growth with <br />
+            <span className="text-glow text-white">Software Development.</span>
           </h1>
 
-          {/* Subheadline */}
-          <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto leading-relaxed">
-            Let guests experience your resort online before they book. Our 360° virtual tours create emotional connections that drive conversions.
-          </p>
+          {/* Subheadline & Badge */}
+          <div className="space-y-4">
+            <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed font-light">
+              We're a full-service Tech Agency <span className="inline-block animate-bounce px-2">👋</span> <br />
+              We turn businesses Into digital <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium"><Sparkles className="w-4 h-4" /> industry leaders.</span>
+            </p>
+          </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button variant="hero" size="xl" asChild>
-              <a href="#demo">
-                <Play className="w-5 h-5" />
-                Explore the Demo Experience
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+            <Button size="xl" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 text-lg" asChild>
+              <a href="#services">
+                Our services
               </a>
             </Button>
-            <Button variant="heroOutline" size="xl" asChild>
+            <Button variant="outline" size="xl" className="rounded-full px-8 py-6 text-lg border-white/20 hover:bg-white/5 text-white bg-transparent backdrop-blur-sm" asChild>
               <Link to="/contact">
-                Book a Free Demo Call
-                <ArrowRight className="w-5 h-5" />
+                Get in touch
+                <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </Button>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto">
-            {[
-              { value: "35%", label: "Booking Increase" },
-              { value: "4x", label: "Longer Site Visits" },
-              { value: "50+", label: "Properties Served" },
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="font-serif text-3xl md:text-4xl font-bold text-accent">{stat.value}</div>
-                <div className="text-white/70 text-sm mt-1">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-        <div className="w-6 h-10 rounded-full border-2 border-white/40 flex items-start justify-center p-2">
-          <div className="w-1 h-3 rounded-full bg-white/60 animate-bounce" />
         </div>
       </div>
     </section>

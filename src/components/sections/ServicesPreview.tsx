@@ -1,85 +1,117 @@
+import { ArrowRight, Code, Smartphone, Globe, Layers } from "lucide-react";
+import VirtualTourDemo from "@/components/VirtualTourDemo";
 import { Link } from "react-router-dom";
-import { Camera, Sparkles, Globe, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-
-const services = [
-  {
-    icon: Camera,
-    title: "360° Virtual Tours",
-    description: "Capture every corner of your property with stunning panoramic photography that lets guests explore freely.",
-    features: ["Professional 360° capture", "Interactive hotspots", "Mobile-optimized viewing"],
-  },
-  {
-    icon: Sparkles,
-    title: "Story-Led Experiences",
-    description: "Transform tours into emotional journeys with guided narratives that highlight your resort's unique character.",
-    features: ["Custom storylines", "Ambient audio", "Brand integration"],
-  },
-  {
-    icon: Globe,
-    title: "Website Development",
-    description: "Beautiful, conversion-focused websites designed to showcase your virtual experiences and drive bookings.",
-    features: ["Booking integration", "SEO optimized", "Performance focused"],
-  },
-];
 
 const ServicesPreview = () => {
   return (
-    <section className="py-20 md:py-32 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="services" className="py-24 bg-background border-t border-white/5 relative overflow-hidden">
+
+      {/* Background ambient glow */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            What We <span className="text-accent">Create</span>
+        <div className="mb-16">
+          <h2 className="font-sans text-4xl md:text-5xl font-medium text-white tracking-tight">
+            Our services
           </h2>
-          <p className="text-muted-foreground text-lg">
-            From capturing stunning 360° imagery to crafting immersive story-led experiences, 
-            we handle everything you need to boost booking confidence.
+          <p className="text-white/60 mt-4 max-w-2xl text-lg">
+            We deliver state-of-the-art digital solutions to empower your business.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className="group p-8 rounded-2xl bg-card border border-border hover:border-accent/30 hover:shadow-large transition-all duration-500"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-gradient-sunset flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <service.icon className="w-7 h-7 text-white" />
-              </div>
+        {/* Bento Grid layout for Services */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[minmax(350px,_auto)]">
 
-              {/* Content */}
-              <h3 className="font-serif text-xl font-semibold text-foreground mb-3">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                {service.description}
+          {/* Card 1: Virtual Tour (Spans 2 columns on lg) */}
+          <div className="glass-panel p-6 flex flex-col justify-between col-span-1 md:col-span-2 lg:col-span-2 hover:border-primary/30 transition-colors group relative overflow-hidden">
+            <div className="mb-6 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+                <Globe className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-white">Vista 360 Virtual Tours</h3>
+            </div>
+
+            {/* The actual Virtual Tour Demo injected into the bento card */}
+            <div className="flex-1 rounded-xl overflow-hidden border border-white/10 relative min-h-[300px] bg-black/50">
+              <div className="absolute inset-0 pointer-events-auto">
+                <VirtualTourDemo />
+              </div>
+              <div className="absolute inset-0 bg-transparent pointer-events-none group-hover:bg-primary/5 transition-colors duration-500 z-10"></div>
+            </div>
+          </div>
+
+          {/* Card 2: WebApp Development */}
+          <div className="glass-panel p-8 flex flex-col justify-between col-span-1 hover:border-primary/30 transition-colors group">
+            <div>
+              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center mb-6">
+                <Layers className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-white mb-3">Web App Development</h3>
+              <p className="text-white/60 text-sm">
+                We build scalable, high-performance web applications tailored to your complex business logic and workflow requirements.
+              </p>
+            </div>
+            <div className="mt-8 flex-1 flex items-end">
+              <div className="w-full h-32 bg-gradient-to-t from-primary/20 to-transparent rounded-lg border border-white/5 relative overflow-hidden">
+                {/* Abstract UI simulation */}
+                <div className="absolute bottom-4 left-4 right-4 h-12 bg-white/10 backdrop-blur-md rounded border border-white/10"></div>
+                <div className="absolute bottom-20 left-4 w-1/2 h-4 bg-white/10 backdrop-blur-md rounded border border-white/10"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3: Mobile App Development */}
+          <div className="glass-panel p-8 flex flex-col justify-between col-span-1 hover:border-primary/30 transition-colors group">
+            <div>
+              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center mb-6">
+                <Smartphone className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-white mb-3">Mobile App Development</h3>
+              <p className="text-white/60 text-sm">
+                Engage your users on the go with intuitive, native-feeling iOS and Android mobile applications.
+              </p>
+            </div>
+            <div className="mt-8 flex justify-center flex-1 items-end">
+              <div className="w-32 h-40 bg-black/80 rounded-t-3xl border-t border-x border-white/20 relative overflow-hidden p-2">
+                <div className="w-full h-full border border-white/10 rounded-t-2xl bg-white/5"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4: Website Development */}
+          <div className="glass-panel p-8 flex flex-col justify-between col-span-1 md:col-span-2 lg:col-span-2 hover:border-primary/30 transition-colors group relative overflow-hidden">
+            {/* Abstract code background */}
+            <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-20 pointer-events-none flex items-center justify-center overflow-hidden">
+              <pre className="text-[8px] text-primary font-mono select-none">
+                {`function init() {
+  const website = new Website({
+    responsive: true,
+    seo: 'optimized',
+    design: 'premium'
+  });
+  website.launch();
+}`}
+              </pre>
+            </div>
+
+            <div className="relative z-10 h-full flex flex-col">
+              <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center mb-6">
+                <Code className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-white mb-3">Website Development</h3>
+              <p className="text-white/60 text-sm max-w-sm">
+                Create a stunning first impression with pixel-perfect, conversion-optimized marketing websites and landing pages.
               </p>
 
-              {/* Features */}
-              <ul className="space-y-2">
-                {service.features.map((feature, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-auto pt-8">
+                <Link to="/contact" className="inline-flex items-center text-primary font-medium hover:text-white transition-colors">
+                  Start your project <ArrowRight className="w-4 h-4 ml-2" />
+                </Link>
+              </div>
             </div>
-          ))}
-        </div>
+          </div>
 
-        {/* CTA */}
-        <div className="text-center">
-          <Button variant="outline" size="lg" asChild>
-            <Link to="/services">
-              View All Services
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </Button>
         </div>
       </div>
     </section>
